@@ -2,6 +2,7 @@ var http = require('http');
 var fs = require('fs');
 var url = require('url');
 var qs = require('querystring');
+var path = require('path');
 
 var template ={
   HTML:function(title, list, body, control){
@@ -15,6 +16,7 @@ var template ={
 
     <body>
       <h1 style="text-align:center; font-size:30px " ><a href="/">WEB Practice</a></h1>
+
       <hr class="two">
       <div style="float: left; width: 20%; padding:10px;">
 
@@ -54,6 +56,7 @@ var app = http.createServer(function(request,response){
 
           fs.readdir('./data', function(error, filelist){
             var title = 'Welcome';
+            /*
             var description = `
             <p style="color:red;"> <strong>어서오세요 </strong></p>
             <p><a href="https://www.youtube.com/channel/UC5ScPjbt-a97AJO7SBj6nAg"
@@ -61,6 +64,11 @@ var app = http.createServer(function(request,response){
               <img src="https://yt3.ggpht.com/a/AATXAJyF9G0nR3RY_1puAktFXb_0M1jzaIBR_bDWzuyj=s900-c-k-c0xffffffff-no-rj-mo"
               alt="폭8이다" width="300" height="270"/>
             </a></p>
+            `;
+            */
+            var description = `
+            <p style="color:red;"> <strong>어서오세요 </strong></p>
+
             `;
 
             var list = template.list(filelist);
@@ -77,7 +85,8 @@ var app = http.createServer(function(request,response){
       } else {
 
         fs.readdir('./data', function(error, filelist){
-        fs.readFile(`data/${queryData.id}`, 'utf8', function(err,description){
+            var filteredId = path.parse(queryData.id).base;
+        fs.readFile(`data/${filteredId}`, 'utf8', function(err,description){
           var title = queryData.id;
           var list = template.list(filelist);
           var html = template.HTML(title, list,
@@ -136,7 +145,8 @@ var app = http.createServer(function(request,response){
 
     } else if(pathname === '/update'){
       fs.readdir('./data', function(error, filelist){
-      fs.readFile(`data/${queryData.id}`, 'utf8', function(err,description){
+          var filteredId = path.parse(queryData.id).base;
+      fs.readFile(`data/${filteredId}`, 'utf8', function(err,description){
         var title = queryData.id;
         var list = template.list(filelist);
         var html = template.HTML(title, list,
@@ -187,7 +197,8 @@ var app = http.createServer(function(request,response){
     request.on('end',function(){
       var post = qs.parse(body);
       var id = post.id;
-      fs.unlink(`data/${id}`, function(error){
+        var filteredId = path.parse(id).base;
+      fs.unlink(`data/${filteredId}`, function(error){
         response.writeHead(302, {Location: `/`});
         response.end();
       })
