@@ -1,7 +1,7 @@
 WEB_Study
 ===
 <a href="https://min413903.tistory.com/" target="_blank"><img src="https://t1.daumcdn.net/cfile/tistory/9931DF3D5B95428108" width="44" height="24" alt="tistory"></a>
-  <a href="https://github.com/min413" target="_blank"><img src="https://miro.medium.com/max/318/1*1OKmA2EdGln8O6RCVORgGg.png" width="24" height="24" alt="github"></a>
+<a href="https://github.com/min413" target="_blank"><img src="https://miro.medium.com/max/318/1*1OKmA2EdGln8O6RCVORgGg.png" width="24" height="24" alt="github"></a>
 ### 공부 계획
 
 (학습할 때 마다 취소선으로 표시됨)
