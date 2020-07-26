@@ -20,6 +20,7 @@ WEB_Study
 
 ### 노트
 <Node.js>  
+sanitize-html npm 모듈은 내용 입력에서 태그의 자유성을 위해 넣지는 않았음  
 
 
 ***
