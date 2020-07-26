@@ -14,5 +14,6 @@ WEB_Study
 
 ### WEB2 - Javascript
 - [WEB2 - JavaScript](https://opentutorials.org/course/3085) 복습
-- [Ajax] 복습
+- [Ajax](https://opentutorials.org/course/3281) 복습
+
 
