@@ -8,7 +8,6 @@ var template ={
     return `
     <!doctype html>
     <html>
-
     <head>
     <title>WEB_01 - ${title}</title>
     <meta charset="utf-8">
