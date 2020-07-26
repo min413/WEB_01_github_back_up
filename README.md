@@ -30,4 +30,6 @@ check
 마크다운으로 WEB_Study의 README.md 파일 내용 작성 시작  
 WEB2 - Node.js 3회차 공부 마무리 및 결과물 깃허브에 업로드  
 Github Desktop 사용  
-
+  <a href="https://min413903.tistory.com/" target="_blank"><img src="https://t1.daumcdn.net/cfile/tistory/9931DF3D5B95428108" width="44" height="24" alt="tistory"></a>
+  <a href="https://github.com/min413" target="_blank"><img src="https://miro.medium.com/max/318/1*1OKmA2EdGln8O6RCVORgGg.png" width="24" height="24" alt="github"></a>
+도 넣을려다가 안넣음
