@@ -21,7 +21,7 @@ WEB_Study
 ***
 
 ### 활동 내역 
-[2020-07-26] 
+[2020-07-26]   
 마크다운으로 WEB_Study의 README.md 파일 내용 작성 시작  
 WEB2 - Node.js 3회차 공부 마무리 및 결과물 깃허브에 업로드  
 Github Desktop 사용  
