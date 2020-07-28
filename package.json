@@ -1,0 +1,23 @@
+{
+  "name": "web_01",
+  "version": "1.0.0",
+  "description": "WEB_Study\r ===\r <a href=\"https://min413903.tistory.com/\" target=\"_blank\"><img src=\"https://t1.daumcdn.net/cfile/tistory/9931DF3D5B95428108\" width=\"44\" height=\"24\" alt=\"tistory\"></a>\r <a href=\"https://github.com/min413\" target=\"_blank\"><img src=\"https://miro.medium.com/max/318/1*1OKmA2EdGln8O6RCVORgGg.png\" width=\"24\" height=\"24\" alt=\"github\"></a>\r ### 공부 계획",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/min413/WEB_Study.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/min413/WEB_Study/issues"
+  },
+  "homepage": "https://github.com/min413/WEB_Study#readme",
+  "dependencies": {
+    "mysql": "^2.18.1",
+    "sanitize-html": "^1.27.1"
+  }
+}

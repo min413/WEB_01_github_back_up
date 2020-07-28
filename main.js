@@ -3,47 +3,16 @@ var fs = require('fs');
 var url = require('url');
 var qs = require('querystring');
 var path = require('path');
-
-
-var template ={
-  HTML:function(title, list, body, control){
-    return `
-    <!doctype html>
-    <html>
-    <head>
-    <title>WEB_01 - ${title}</title>
-    <meta charset="utf-8">
-    </head>
-
-    <body>
-      <h1 style="text-align:center; font-size:30px " ><a href="/">WEB Practice</a></h1>
-
-      <hr class="two">
-      <div style="float: left; width: 20%; padding:10px;">
-
-      ${list}
-      ${control}
-
-      </div>
-      <div style="float: left; width: 70%; padding:10px; border-left:thin solid #808080;">
-
-        ${body}
-      </div>
-    </body>
-    </html>
-
-    `;
-  }, list:function(filelist){
-    var list = '<ul>';
-    var i = 0;
-    while(i < filelist.length){
-      list = list + `<li type=square><a href="/?id=${filelist[i]}">${filelist[i]}</a></li>`
-      i = i + 1;
-    }
-    list = list+ '</ul>';
-    return list;
-  }
-}
+var sanitizeHtml = require('sanitize-html');
+var template = require('./lib/template.js');
+var mysql = require('mysql');
+var db = mysql.createConnection({
+  host:'localhost',
+  user:'root',
+  password:'111111',
+  database:'opentutorial'
+});
+db.connect();
 
 
 var app = http.createServer(function(request,response){
@@ -55,53 +24,75 @@ var app = http.createServer(function(request,response){
     if(pathname === '/'){
       if(queryData.id === undefined){
 
-          fs.readdir('./data', function(error, filelist){
+          db.query(`SELECT * FROM topic`, function(error,topics){
+
             var title = 'Welcome';
-            /*
-            var description = `
-            <p style="color:red;"> <strong>어서오세요 </strong></p>
-            <p><a href="https://www.youtube.com/channel/UC5ScPjbt-a97AJO7SBj6nAg"
-            target="_blank" title="어...허..허.">
-              <img src="https://yt3.ggpht.com/a/AATXAJyF9G0nR3RY_1puAktFXb_0M1jzaIBR_bDWzuyj=s900-c-k-c0xffffffff-no-rj-mo"
-              alt="폭8이다" width="300" height="270"/>
-            </a></p>
-            `;
-            */
             var description = `
             <p style="color:red;"> <strong>어서오세요 </strong></p>
 
             `;
-
-            var list = template.list(filelist);
+            var list = template.list(topics);
             var html = template.HTML(title, list, `<h1><strong>${title}</strong></h1>${description}`,
             `<a href="/create">create</a>`);
             response.writeHead(200);
             response.end(html);
-
-
           });
 
 
-
       } else {
-
+        /*
         fs.readdir('./data', function(error, filelist){
             var filteredId = path.parse(queryData.id).base;
         fs.readFile(`data/${filteredId}`, 'utf8', function(err,description){
           var title = queryData.id;
+          var sanitizedTitle = sanitizeHtml(title);
+          var sanitizedDescription = sanitizeHtml(description,{
+            allowedTags:['h1','p', 'ul', 'li', 'b', 'a', 'br', 'img', 'alt',
+          'width', 'height']
+          });
           var list = template.list(filelist);
-          var html = template.HTML(title, list,
-            `<h1><strong>${title}</strong></h1>${description}`,
+          var html = template.HTML(sanitizedTitle, list,
+            `<h1><strong>${sanitizedTitle}</strong></h1>${sanitizedDescription}`,
           `<a href="/create">create</a>
-          <a href="/update?id=${title}">update</a>
+          <a href="/update?id=${sanitizedTitle}">update</a>
           <form action="delete_process" method="post">
-            <input type="hidden" name="id" value="${title}">
+            <input type="hidden" name="id" value="${sanitizedTitle}">
             <input type="submit" value="delete">
           </form>`
         );
           response.writeHead(200);
           response.end(html);
         });
+      });
+      */
+      db.query(`SELECT * FROM topic`, function(error,topics){
+        if(error){
+          throw error;
+        }
+        db.query(`SELECT * FROM topic WHERE id=?`,[queryData.id], function(error2,topic){
+          if(error2){
+            throw error2;
+          }
+          var title = topic[0].title;
+          var description = topic[0].description;
+          /* `
+          <p style="color:red;"> <strong>어서오세요 </strong></p>
+
+          `;*/
+          var list = template.list(topics);
+          var html = template.HTML(title, list, `<h1><strong>${title}</strong></h1>${description}`,
+            `<a href="/create">create</a>
+            <a href="/update?id=${queryData.id}">update</a>
+            <form action="delete_process" method="post">
+              <input type="hidden" name="id" value="${queryData.id}">
+              <input type="submit" value="delete">
+            </form>`
+
+        );
+          response.writeHead(200);
+          response.end(html);
+        })
+
       });
       }
 
@@ -116,7 +107,7 @@ var app = http.createServer(function(request,response){
             <input type="next" name="title" placeholder="title">
           </p>
           <p>
-            <textarea name="description" placeholder="description"></textarea>
+            <textarea name="description" style="width:300px;height:200px;" placeholder="description"></textarea>
           </p>
           <p>
             <input type="submit">
@@ -158,7 +149,7 @@ var app = http.createServer(function(request,response){
             <input type="next" name="title" placeholder="title" value="${title}">
           </p>
           <p>
-            <textarea name="description" placeholder="description">${description}</textarea>
+            <textarea name="description" style="width:300px;height:200px;" placeholder="description">${description}</textarea>
           </p>
           <p>
             <input type="submit">
