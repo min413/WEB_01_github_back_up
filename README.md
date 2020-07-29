@@ -7,7 +7,7 @@ WEB_Study
 (학습할 때 마다 취소선으로 표시됨)
 
 #### WEB2 - Node.js
-- [Node.js - MySQL](https://opentutorials.org/course/3347) 복습
+- ~~[Node.js - MySQL](https://opentutorials.org/course/3347) 복습~~  
 - [Node.js - Express](https://opentutorials.org/course/3370) 복습
 - [Node.js - 쿠키와 인증](https://opentutorials.org/course/3387) 복습
 - [세션과 인증](https://opentutorials.org/course/3400) 복습
@@ -38,4 +38,7 @@ Mysql 프로그램 세팅 맞추는데 은근 시간 걸렸음
 github 데스크탑으로 올리다가 오류때문에 그냥 직접 덮어 써지는지 테스트 할겸 파일 업로드함  
 (다행히 파일 이름만 같으면 via upload 뭐시기 하면서 덮어씌어짐)  
 
+<b>[2020-07-29]</b>  
+저자 삭제 기능 구현까진 배워봤음  
+npm 모듈들 까지 모두 올릴수는 없어서 그냥 파일 백업용으로만 생각해야한다  
 
