@@ -8,7 +8,7 @@ WEB_Study
 
 #### WEB2 - Node.js
 - ~~[Node.js - MySQL](https://opentutorials.org/course/3347) 복습~~  
-- [Node.js - Express](https://opentutorials.org/course/3370) 복습
+- ~~[Node.js - Express](https://opentutorials.org/course/3370) 복습~~  
 - [Node.js - 쿠키와 인증](https://opentutorials.org/course/3387) 복습
 - [세션과 인증](https://opentutorials.org/course/3400) 복습
 - [Passport.js](https://opentutorials.org/course/3402)
@@ -42,3 +42,6 @@ github 데스크탑으로 올리다가 오류때문에 그냥 직접 덮어 써�
 저자 삭제 기능 구현까진 배워봤음  
 npm 모듈들 까지 모두 올릴수는 없어서 그냥 파일 백업용으로만 생각해야한다  
 
+<b>[2020-08-03]</b>  
+express 강의 완강함  
+nodejs를 기반으로 express 관련 모듈들을 활용하면 재밌을 것 같음  
