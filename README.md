@@ -10,7 +10,7 @@ WEB_Study
 - ~~[Node.js - MySQL](https://opentutorials.org/course/3347) 복습~~  
 - ~~[Node.js - Express](https://opentutorials.org/course/3370) 복습~~  
 - ~~[Node.js - 쿠키와 인증](https://opentutorials.org/course/3387) 복습~~  
-- [세션과 인증](https://opentutorials.org/course/3400) 복습
+- ~~[세션과 인증](https://opentutorials.org/course/3400) 복습~~  
 - [Passport.js](https://opentutorials.org/course/3402)
 
 #### WEB2 - Javascript
@@ -53,3 +53,14 @@ express 관련 파일은 [여기](https://github.com/min413/WEB_express) 따로 
 쿠키와 인증 강의 완료 [파일](https://github.com/min413/WEB_cookie)  
 기존의 배웠던 이론과 스스로 인터넷에 정보를 찾아서 적용해 보는 연습도 해야겠다  
 그리고 PHP언어도 강의가 준비되어 있어 PHP도 방학동안 돌려봐야 겠다  
+
+<b>[2020-08-09]</b>  
+express-session 강의 완료 [파일](https://github.com/min413/WEB_express-session)  
+개인적으로 지금까지 제일 이해하기 힘들고 어려웠다  
+아직 로그아웃에서 왜 오류가 생기는지 찾지 못했다  
+request.session.destory이 함수가 아니라는 오류만 계속 출력되는데  
+코드를 그대로 적고 다른 코드들도 틀리지 않게 적어도 계속 오류가 뜬다  
+마무리 강의에서는 유저 관리를 다른 곳에서 관리하고 나는 그 식별자만을 통해 유저들을 구분할 수 있는 federation authentication라는 개념을 소개했다  
+그 내용을 알려주는 수업 중 하나가 바로 Passport.js이다  
+타사 계정으로 로그인해서 사용자, 관리자 모두 편하게 사용할 수 있는 도구가 Oauth이다  
+아직 node.js에 대해 익숙하지 않으므로 좀 더 nodejs에 익숙해지는 시간을 가지고 유저 관리에 대한 개념에 대해 살펴봐야겠다  
